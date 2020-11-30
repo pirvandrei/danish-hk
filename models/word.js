@@ -7,7 +7,21 @@ const wordSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  date: {
+  definitionDk: {
+    type: String,
+    required: true,
+  },
+  definitionRo: {
+    type: String,
+  },
+  definitionEn: {
+    type: String,
+  },
+  createDate: {
+    type: Date,
+    required: true,
+  },
+  updateDate: {
     type: Date,
     required: true,
   },
