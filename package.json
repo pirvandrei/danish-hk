@@ -2,19 +2,6 @@
   "name": "danish-hk",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "cors": "^2.8.5",
-    "cross-env": "^7.0.2",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-async-errors": "^3.1.1",
-    "mongoose": "^5.10.18",
-    "mongoose-unique-validator": "^2.0.3",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
-  },
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
@@ -22,6 +9,26 @@
     "deploy": "git push",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy",
     "logs:prod": "heroku logs --tail"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.23",
+    "mongoose-unique-validator": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-react": "^7.20.3",
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "supertest": "^4.0.2"
   },
   "eslintConfig": {
     "extends": [
