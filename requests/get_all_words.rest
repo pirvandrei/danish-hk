@@ -1,0 +1,32 @@
+GET http://localhost:3001/api/words
+
+
+### 
+# DELETE http://localhost:3001/api/notes/5f0c3898b2eaa16e6843a4e3
+### 
+POST http://localhost:3001/api/words
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBpcnZhbmRyZWVhIiwiaWQiOiI1ZjI5MTg4NGMwNzYyNDU0YjhiZTczMTMiLCJpYXQiOjE1OTY2MjA5MDh9.R5sqEnOhsAF14uXe-B-1smLGWce7MbgS8hwDGOCCUpU
+
+{
+    "lex" : "bygge",
+    "definitionRo" : "a contrui",
+    "definitionEn" : "to build",
+    "definitionDk" : "to ordne forskillie ting til det retter plads"
+}
+
+###
+DELETE http://localhost:3001/api/words/5fc6150cfe40b636b4ff2480
+
+
+### 
+PUT http://localhost:3001/api/words/5f0c3898b2eaa16e6843a4e3
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBpcnZhbmRyZWVhIiwiaWQiOiI1ZjI5MTg4NGMwNzYyNDU0YjhiZTczMTMiLCJpYXQiOjE1OTY2MjA5MDh9.R5sqEnOhsAF14uXe-B-1smLGWce7MbgS8hwDGOCCUpU
+
+{
+    "lex" : "bygge",
+    "definitionRo" : "a contrui",
+    "definitionEn" : "to build",
+    "definitionDk" : "to ordne forskillie ting til det retter plads"
+}

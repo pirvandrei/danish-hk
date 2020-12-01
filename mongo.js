@@ -24,9 +24,9 @@ const Word = mongoose.model('Word', wordSchema);
 
 const word = new Word({
   lex: process.argv[3] || 'rydde op',
-  definitionDk: "at ordne nogen forskillie ting på deres rette plads",
-  definitionRo: "a aranja lucrurile la locul lor",
-  definitionEn: "to clean up",
+  definitionDk: 'at ordne nogen forskillie ting på deres rette plads',
+  definitionRo: 'a aranja lucrurile la locul lor',
+  definitionEn: 'to clean up',
   createDate: new Date(),
   updateDate: new Date(),
 });
@@ -41,7 +41,7 @@ word
     console.log('error connecting to MongoDB:', error.message);
   });
 
-  Word.find({}).then((result) => {
+Word.find({}).then((result) => {
   result.forEach((word) => {
     console.log(word);
 

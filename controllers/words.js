@@ -1,6 +1,6 @@
 const wordsRouter = require('express').Router();
 const Word = require('../models/word');
-const User = require('../models/user');
+// const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 
 const getTokenFrom = (request) => {
@@ -22,6 +22,17 @@ wordsRouter.get('/', (req, res) => {
     });
 });
 
+wordsRouter.get('/:id', async (request, response) => {
+  const word = await Word.findById(request.params.id);
+
+  if (word) {
+    response.json(word);
+  } else {
+    response.status(404).end();
+  }
+});
+
+
 wordsRouter.post('/', async (request, response) => {
   const body = request.body;
 
@@ -31,7 +42,7 @@ wordsRouter.post('/', async (request, response) => {
     return response.status(401).json({ error: 'token missing or invalid' });
   }
 
-  const user = await User.findById(decodedToken.id);
+  // const user = await User.findById(decodedToken.id);
 
   if (body.lex === undefined) {
     return response.status(400).json({
@@ -42,17 +53,17 @@ wordsRouter.post('/', async (request, response) => {
   const word = new Word({
     lex: body.lex,
     definitionDk: body.definitionDk,
-    definitionEn: body.definitionDk,
-    definitionRo: body.definitionDk,
+    definitionEn: body.definitionEn,
+    definitionRo: body.definitionRo,
     createDate: new Date(),
     updateDate: new Date(),
-    user: user._id,
+    // user: user._id,
   });
 
   const savedWord = await word.save();
 
-  user.words = user.words.concat(savedWord._id);
-  await user.save();
+  // user.words = user.words.concat(savedWord._id);
+  // await user.save();
 
   response.json(savedWord);
 });

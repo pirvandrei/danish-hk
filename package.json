@@ -5,9 +5,12 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "uat": "cross-env NODE_ENV=test node index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand ",
     "build:ui": "rm -rf build && cd ../learningdanish && npm run build --prod && cp -r build ../danish-hk/",
     "deploy": "git push",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy",
+    "lint": "eslint .",
     "logs:prod": "heroku logs --tail"
   },
   "dependencies": {
@@ -30,6 +33,9 @@
     "prettier": "^2.0.5",
     "supertest": "^4.0.2"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -48,4 +54,4 @@
       "last 1 safari version"
     ]
   }
-}
+} 
