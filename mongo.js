@@ -8,11 +8,7 @@ if (process.argv.length < 3) {
 }
 
 const password = process.argv[2];
-
 const url = `mongodb://fullstack:${password}@cluster0-shard-00-00-sy0oy.azure.mongodb.net:27017,cluster0-shard-00-01-sy0oy.azure.mongodb.net:27017,cluster0-shard-00-02-sy0oy.azure.mongodb.net:27017/react?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority`;
-
-// 3.0  `mongodb+srv://fullstack:${password}@cluster0-sy0oy.azure.mongodb.net/react?retryWrites=true&w=majority`
-
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const wordSchema = new mongoose.Schema({

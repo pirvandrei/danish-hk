@@ -51,10 +51,32 @@ wordsRouter.post('/', async (request, response) => {
 
   const savedWord = await word.save();
 
-  // user.notes = user.notes.concat(savedNote._id);
-  // await user.save();
+  user.words = user.words.concat(savedWord._id);
+  await user.save();
 
   response.json(savedWord);
+});
+
+wordsRouter.delete('/:id', async (request, response) => {
+  const word = await Word.findByIdAndRemove(request.params.id);
+  if (word) {
+    response.json(word);
+  } else {
+    response.status(404).end;
+  }
+});
+
+wordsRouter.put('/:id', (request, response, next) => {
+  const body = request.body;
+  const word = {
+    lex: body.lex,
+    definitionDk: body.definitionDk,
+  };
+  Word.findByIdAndUpdate(request.params.id, word, { new: true })
+    .then((updatedWord) => {
+      response.json(updatedWord);
+    })
+    .catch((error) => next(error));
 });
 
 module.exports = wordsRouter;
